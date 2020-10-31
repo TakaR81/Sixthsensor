@@ -1,0 +1,48 @@
+<!DOCTYPE html> <!-- リンク先のページ(登録ページ) -->
+<html>
+  <head>
+    <!-- 文字コードをUTF-8を使う -->
+    <meta charset="utf-8">
+
+  
+   
+    <title>Setting</title>
+
+    <!-- 「enchant.js」を読み込む -->
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="./js/csv.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+
+    <!-- 「body」要素のマージンを「0」に設定する -->
+    <style type="text/css">
+    </style>
+  </head>
+
+  <!-- 「body」要素は必須 -->
+  <body>
+    
+    <div id="setting">
+      
+      <input type="image" id="setting-btn" src="img/back.png" >
+    <form>
+      <h1>設定</h1>
+      <p id="loginError"></p>
+      <p id="success"></p>
+
+      <h3>迷いを入力してください</h3>
+      <select id="ketui" class="ketui1">
+          <option value="" hidden>迷いの入力</option>
+          <option value="kokuhaku">告白</option>
+          <option value="tensyoku">転職</option>
+          <option value="benkyou">勉強</option>
+          <option value="marrige">結婚</option>
+          <option value="japan">日本の未来</option>
+      </select>
+      
+      <h4>twitterのアカウント名を<br>入力してください</h4>
+      <input id="account" placeholder="アカウント名" type="text"/>
+      <button input type="button" id="save" class="loginButton2">保存</button>
+      
+      </div>
+    </form>
+</html>

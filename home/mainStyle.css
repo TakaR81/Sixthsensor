@@ -1,0 +1,273 @@
+article, 
+aside, 
+details, 
+figcaption, 
+figure, 
+footer, 
+header, 
+hgroup, 
+nav, 
+section {
+    display: block;
+}
+
+html {
+    font-size: 62.5%;
+    -webkit-text-size-adjust: 400%;
+    -ms-text-size-adjust: 400%;
+}
+
+input:focus, 
+textarea:focus {
+    outline: none;
+}
+
+label, 
+select, 
+button, 
+input[type="submit"], 
+input[type="radio"], 
+input[type="checkbox"] 
+input[type="button"] {
+    cursor: pointer;
+}
+
+a, 
+a:visited, 
+a:active {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+::selection {
+    background: #ed327b;
+    color: #fff;
+}
+
+::-moz-selection {
+    background: #ed327b;
+    color: #fff;
+}
+
+* {
+    font-size:100%;
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body {
+  background:#f0f0f0;
+}
+
+* {
+  font-family:"Helvetica Neue", Helvetica, Arial;
+}
+
+
+h1 {
+  text-align:center;
+  font-size:1.4em;
+  font-weight:700;
+  color:#000;
+  margin-bottom:24px;
+  margin-top: 24px;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 62.5%;/*rem算出をしやすくするために*/
+}
+
+/*まずはお決まりのボックスサイズ算出をborer-boxに */
+
+/*https://jajaaan.co.jp/css/button/*/
+.btn,
+a.btn,
+button.btn {
+  position: relative;
+  display: inline-block;
+  padding: 0rem 0rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+}
+.btn{
+  width: 20%;
+  font-size: 5px;
+  display: block;
+  border: 4px solid;
+  margin: 0 0 0 auto;
+}
+.btn,
+a.btn {
+  color: #fff;
+  background-color: #ffc297;
+  float:right;
+}
+
+
+/*main.htmlでいじったところ*/
+
+.main{
+  background:#fff;
+  border-radius:6px;
+  padding:10px;
+  padding-top:10px;
+  width:850px;
+  margin:50px auto;
+  box-shadow:15px 15px 0px rgba(0,0,0,.1);
+    color: #6b6b6b
+}
+
+.font1{
+  font-size: 100px;
+  padding-right: 30%;
+}
+
+.font2{
+  font-size: 12px;
+  padding-right: 30%;
+}
+.check-button{
+  position: relative;
+}
+
+/*設定ボタン関係*/
+#setting-btn{
+    color: #fff;
+    background-color: #4b4b4b;
+    margin: 1%;
+    border-radius: 35%;
+    position:absolute;
+    display: block;
+    transition: .3s;
+    right: 8%;
+    top: 5%;
+    height: 100px;
+    width: 100px;
+}
+#setting-btn:hover{
+    color: #fff;
+    background-color: "black";
+    background: -webkit-gradient(linear, left bottom, left top, from(#fdfbfb), to(#ebedee));
+    background: -webkit-linear-gradient(bottom, #fdfbfb 0%, #ebedee 100%);
+    background: linear-gradient(to top, #fdfbfb 0%, #ebedee 100%);
+}
+.img-gear{
+    width: 70%;
+    height: 70%;
+    margin-top: 10%;
+    position: relative;
+    opacity: 0.95;
+}
+
+/*areaのタイトル*/
+.topic{
+    position: relative;
+    font-size: 14px;
+    text-decoration:underline;
+}
+/*
+.topic::before {
+  position: absolute;
+  content: '';
+  top: 100%;
+  left: 10;
+  border: none;
+  border-bottom: solid 15px transparent;
+  border-right: solid 20px rgb(149, 158, 155);
+}
+*/
+/*areaの！*/
+.sub-text{
+    position: relative;
+    font-size: 9px;
+    left: 20px;
+    font-style: italic;
+}
+/*上のあいさつのところ*/
+.area{
+    display: block;
+    margin: 30px 30px 30px 30px;
+}
+
+/*グラフ関係*/
+.graph-area{
+    display: block;
+    margin: 30px 30px 30px 30px;
+}
+.img-graph{
+    position: relative;
+    margin: 5% 25%;
+    width: 50%;
+    height: 50%;
+}
+#graph{
+  align-items: center;
+  width:90%;
+  height:100%;
+}
+.canvas-container {
+    position: relative;
+    width:  calc(100% - 40px);
+    height: 300px;
+    overflow: hidden;
+    left:5%;
+}
+
+.canvas{
+  padding-left: 4%;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/*思いのたけ*/
+
+
+.text_mining {
+
+}
+
+.text_mining {
+  position: relative;
+  border-radius: 8%;
+  width: 90%;
+  height: 90%;
+  margin: 5% 5%;
+  filter: blur(0.85px);
+    opacity: 0.9;
+    animation: anime1 2.5s ease;
+}
+ 
+@keyframes anime1 {
+    0% {
+        opacity:  0.15;
+    }
+    100% {
+        opacity:  0.9;
+    }
+}
