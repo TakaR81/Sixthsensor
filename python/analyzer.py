@@ -3,6 +3,7 @@ import MeCab
 import os
 import json
 import codecs
+import math
 from google.cloud import language_v1
 from google.api_core.exceptions import InvalidArgument
 
@@ -13,8 +14,8 @@ class Analyzer:
         """コンストラクタ
         """
         self.pn_dict = None
-        self.custom_positive_dict = None
-        self.custom_negative_dict = None
+        self.custom_positive_words = None
+        self.custom_negative_words = None
         self.tagger = MeCab.Tagger()
         self.NLclient = language_v1.LanguageServiceClient()
 
@@ -45,8 +46,8 @@ class Analyzer:
             json_data = json.load(f)
         
         if theme in json_data:
-            self.custom_positive_dict = json_data[theme]["positive"]
-            self.custom_negative_dict = json_data[theme]["negative"]
+            self.custom_positive_words = json_data[theme]["positive"]
+            self.custom_negative_words = json_data[theme]["negative"]
         else:
             print("loadCustomDict Error: the theme is not in custom-dict-file.")
         
@@ -126,26 +127,28 @@ class Analyzer:
         return score
 
 
-    def pnWordBias(self, text, a=0.1):
+    def pnWordBias(self, text):
         """ pnWordBias
         迷いの設定に合わせた特定のワード辞書を参照し，補正値を計算して返す．
 
-        args:
+        arg:
             text(string): ツイート内容
-            a(float): 調整用係数
         return:
+            bias(flaot): 補正値 (-0.5~0.5)
             
         """
         positive_word_num = 0
         negative_wird_num = 0
         morpheme_list = self._morphologicalAnalyze_(text)
         for morpheme in morpheme_list:
-            if morpheme in self.custom_positive_dict:
+            if morpheme in self.custom_positive_words:
                 positive_word_num += 1
-            elif morpheme in self.custom_negative_dict:
+            elif morpheme in self.custom_negative_words:
                 negative_wird_num += 1
         
-        bias = a * (positive_word_num - negative_wird_num)
+        a = max(positive_word_num, negative_wird_num)
+            / positive_word_num + negative_wird_num
+        bias = 1 / (1 + math.exp(-1 * a * (p - n))) - 0.5
         return bias
 
 
